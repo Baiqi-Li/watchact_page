@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============ EDIT: page metadata ============ -->
+  <title>WatchAct: A Benchmark for Behavior-Grounded Robot Manipulation</title>
+  <meta name="description" content="ONE-SENTENCE PROJECT DESCRIPTION." />
+  <meta name="keywords" content="keyword1, keyword2, keyword3" />
+
+  <!-- Open Graph / social preview (shown when the link is shared) -->
+  <meta property="og:title" content="WatchAct: A Benchmark for Behavior-Grounded Robot Manipulation" />
+  <meta property="og:description" content="ONE-SENTENCE PROJECT DESCRIPTION." />
+  <meta property="og:image" content="assets/og-preview.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- ============================================== -->
+
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <!-- ======================= HERO / TITLE ======================= -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="title">WatchAct: A Benchmark for Behavior-Grounded Robot Manipulation</h1>
+
+      <!-- ============ EDIT: authors (add href="..." to link homepages) ============ -->
+      <div class="authors">
+        <span class="author"><a href="https://scholar.google.com/citations?user=mwdpP7sAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Baiqi Li</a></span>
+        <span class="author"><a href="https://ceezh.github.io/" target="_blank" rel="noopener">Ce Zhang</a></span>
+        <span class="author"><a href="https://yuffish.github.io/" target="_blank" rel="noopener">Yu Fang</a></span>
+        <span class="author"><a href="https://yy-gx.github.io/" target="_blank" rel="noopener">Yue Yang</a></span>
+        <span class="author"><a href="https://tobyleelsz.github.io/" target="_blank" rel="noopener">Shangzhe Li</a></span>
+        <span class="author"><a href="https://dingmyu.github.io/" target="_blank" rel="noopener">Mingyu Ding</a></span>
+        <span class="author"><a href="https://www.gedasbertasius.com/" target="_blank" rel="noopener">Gedas Bertasius</a></span>
+      </div>
+      <div class="affiliations">
+        <span>University of North Carolina at Chapel Hill</span>
+      </div>
+
+      <!-- ============ EDIT: action buttons ============ -->
+      <nav class="buttons">
+        <a class="btn" href="#" target="_blank" rel="noopener">
+          <span class="icon">📚</span> arXiv
+        </a>
+        <a class="btn" href="#" target="_blank" rel="noopener">
+          <span class="icon">💻</span> Code
+        </a>
+        <a class="btn" href="#" target="_blank" rel="noopener">
+          <span class="icon">🗂️</span> Dataset
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= OVERVIEW VIDEO ======================= -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>Video Introduction</h2>
+        <!-- poster shows a still frame (extracted from the video) before play,
+             so the box isn't black. The overview-video class fixes the 16:9 box
+             so it never resizes when playback starts. -->
+        <video class="bare-video overview-video" controls playsinline preload="metadata"
+               poster="assets/overview-poster.jpg">
+          <source src="assets/overview.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <!-- ======================= ABSTRACT ======================= -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>Abstract</h2>
+        <p class="justify">
+          A robot working alongside people must reason about what they have done, in what order,
+          and with what intent. Video carries the spatial layouts, object histories, and gestures
+          that language leaves underspecified, yet today's manipulation benchmarks pair an
+          instruction with a single current image, offering no way to evaluate reasoning over
+          observed human behavior. We introduce <strong>WatchAct</strong>, a benchmark for robot
+          manipulation grounded in observed human behavior. Each instance pairs a real-world
+          human-action video and a language instruction with an aligned simulator scene and an
+          executable LIBERO task, enabling scalable and reproducible evaluation. WatchAct comprises 3,000 long-horizon instances across 14 tasks in four capability
+          domains drawn from the cognitive demands of watching another agent: parsing events
+          (Event Grounding), recovering procedural structure (Procedural Reasoning), inferring
+          unstated intent (Implicit Intent Inference), and tracking how the scene was changed
+          (Episodic Reasoning). We further propose a disentangled evaluation protocol that
+          separately measures (i)&nbsp;video-to-plan reasoning by vision-language models,
+          (ii)&nbsp;policy execution under oracle plans, and (iii)&nbsp;full task completion by
+          integrated planner–policy pipelines. In both simulation and on a Franka Research 3 robot, current systems remain far from
+          solving WatchAct. The best pipeline, Gemini-3.1-Pro with <em>π<sub>0.5</sub></em>,
+          reaches only 16.3% Success Rate (SR) in simulation and 14.0% on the real robot.
+          Gemini-3.1-Pro attains just 36.8% Plan SR (vs. 97.1% for humans), while
+          <em>π<sub>0.5</sub></em> reaches only 21.5% Task SR under oracle plans and drops to
+          10.6% on out-of-domain scenarios.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================= MOTIVATION EXAMPLE ======================= -->
+    <section class="section">
+      <div class="container">
+        <h2>Motivating Example</h2>
+        <p class="section-intro">
+          A robot working alongside people must reason about what they have done, in what order, and with what intent. Here's an example. The robot watches a person rearrange objects. It's then given an instruction: put the moved objects back where they were. It then executes the plan in a digital twin of the scene. To succeed, the robot must reason from the human video and plan its next actions — a setting overlooked by prior work.
+        </p>
+
+        <div class="example">
+          <p class="instruction">
+            <span class="instruction-label">Instruction:</span>
+            “Put the moved objects back where they were.”
+          </p>
+          <div class="video-pair">
+            <figure class="video-cell">
+              <video class="bare-video" autoplay muted loop playsinline poster="assets/motivation-human-poster.png">
+                <source src="assets/motivation-human.mp4" type="video/mp4" />
+              </video>
+              <figcaption>Human Video</figcaption>
+            </figure>
+            <figure class="video-cell">
+              <video class="bare-video" autoplay muted loop playsinline poster="assets/motivation-robot-poster.png">
+                <source src="assets/motivation-robot.mp4" type="video/mp4" />
+              </video>
+              <figcaption>Robot Execution</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= BENCHMARK COMPOSITION ======================= -->
+    <section class="section">
+      <div class="container">
+        <h2>Benchmark Composition</h2>
+        <p class="section-intro">
+          WatchAct comprises 3,000 long-horizon instances, each pairing a real-world video of human activity with an aligned, executable simulator task. Each instance pairs a real human-action video and a language instruction with an aligned simulator scene and an executable task, so evaluation is both scalable and reproducible.
+
+        </p>
+        <figure>
+          <img src="assets/benchmark-composition.png" alt="Benchmark composition" />
+          <figcaption><strong>Figure 1.</strong> Benchmark composition.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======================= TAXONOMY ======================= -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>Taxonomy</h2>
+        <p>Describe and visualize your taxonomy here.</p>
+        <figure>
+          <img src="assets/taxonomy.png" alt="Taxonomy" />
+          <figcaption><strong>Figure 1.</strong> Taxonomy overview.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======================= DATA GENERATION PIPELINE ======================= -->
+    <section class="section">
+      <div class="container">
+        <h2>Data Generation Pipeline</h2>
+        <p class="section-lead">Describe how the data is generated.</p>
+        <figure>
+          <img src="assets/pipeline.png" alt="Data generation pipeline" />
+          <figcaption><strong>Figure 3.</strong> Data generation pipeline.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======================= TASK EXAMPLES ======================= -->
+    <section class="section">
+      <div class="container">
+        <h2>Task Examples</h2>
+        <p class="section-lead">
+          Write a sentence or short paragraph introducing the task examples here.
+        </p>
+
+        <!-- Carousel: one example shown at a time; arrows switch between them. -->
+        <div class="carousel" data-carousel>
+          <button class="carousel-arrow prev" data-carousel-prev aria-label="Previous example">&#8249;</button>
+
+          <div class="carousel-track">
+            <!-- ---- Task example 1 (instruction, then video left + image right) ---- -->
+            <div class="carousel-slide is-active" data-carousel-slide>
+              <p class="instruction">
+                <span class="instruction-label">Instruction:</span>
+                “PUT THE LANGUAGE INSTRUCTION HERE.”
+              </p>
+              <div class="media-pair">
+                <figure class="media-cell">
+                  <video class="bare-video" autoplay muted loop playsinline poster="assets/task1-video-poster.png">
+                    <source src="assets/task1-video.mp4" type="video/mp4" />
+                  </video>
+                </figure>
+                <figure class="media-cell">
+                  <img src="assets/task1-image.png" alt="Task example 1" />
+                </figure>
+              </div>
+            </div>
+
+            <!-- ---- Task example 2 ---- -->
+            <div class="carousel-slide" data-carousel-slide>
+              <p class="instruction">
+                <span class="instruction-label">Instruction:</span>
+                “PUT THE LANGUAGE INSTRUCTION HERE.”
+              </p>
+              <div class="media-pair">
+                <figure class="media-cell">
+                  <video class="bare-video" muted loop playsinline poster="assets/task2-video-poster.png">
+                    <source src="assets/task2-video.mp4" type="video/mp4" />
+                  </video>
+                </figure>
+                <figure class="media-cell">
+                  <img src="assets/task2-image.png" alt="Task example 2" />
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-arrow next" data-carousel-next aria-label="Next example">&#8250;</button>
+        </div>
+
+        <!-- Slide counter (auto-updated by JS) -->
+        <p class="carousel-counter" data-carousel-counter></p>
+      </div>
+    </section>
+
+    <!-- ======================= EXPERIMENTS ======================= -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>Experiments</h2>
+        <p>Highlight your main quantitative and qualitative results.</p>
+        <figure>
+          <img src="assets/experiments.png" alt="Experiments" />
+          <figcaption><strong>Figure 4.</strong> Experimental results.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======================= ROLLOUT DEMOS ======================= -->
+    <section class="section">
+      <div class="container">
+        <h2>Rollout Demos</h2>
+        <p class="section-lead">
+          Choose a category, then use the arrows to browse examples within it.
+        </p>
+
+        <!-- Category tabs. data-rollout-tab must match a panel's data-rollout-panel. -->
+        <div class="rollout-tabs" role="tablist">
+          <button class="rollout-tab is-active" data-rollout-tab="sim">Simulation</button>
+          <button class="rollout-tab" data-rollout-tab="real">Real World</button>
+        </div>
+
+        <!-- ---- Simulation category ---- -->
+        <div class="rollout-panel is-active" data-rollout-panel="sim">
+          <div class="carousel" data-carousel>
+            <button class="carousel-arrow prev" data-carousel-prev aria-label="Previous example">&#8249;</button>
+            <div class="carousel-track">
+              <!-- Simulation example 1 -->
+              <div class="carousel-slide is-active" data-carousel-slide>
+                <p class="instruction">
+                  <span class="instruction-label">Instruction:</span>
+                  “PUT THE LANGUAGE INSTRUCTION HERE.”
+                </p>
+                <div class="video-pair">
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/sim1a-poster.png">
+                      <source src="assets/sim1a.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption A</figcaption>
+                  </figure>
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/sim1b-poster.png">
+                      <source src="assets/sim1b.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption B</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <!-- Simulation example 2 -->
+              <div class="carousel-slide" data-carousel-slide>
+                <p class="instruction">
+                  <span class="instruction-label">Instruction:</span>
+                  “PUT THE LANGUAGE INSTRUCTION HERE.”
+                </p>
+                <div class="video-pair">
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/sim2a-poster.png">
+                      <source src="assets/sim2a.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption A</figcaption>
+                  </figure>
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/sim2b-poster.png">
+                      <source src="assets/sim2b.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption B</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <!-- Simulation example 3 -->
+              <div class="carousel-slide" data-carousel-slide>
+                <p class="instruction">
+                  <span class="instruction-label">Instruction:</span>
+                  “PUT THE LANGUAGE INSTRUCTION HERE.”
+                </p>
+                <div class="video-pair">
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/sim3a-poster.png">
+                      <source src="assets/sim3a.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption A</figcaption>
+                  </figure>
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/sim3b-poster.png">
+                      <source src="assets/sim3b.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption B</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-arrow next" data-carousel-next aria-label="Next example">&#8250;</button>
+          </div>
+          <p class="carousel-counter" data-carousel-counter></p>
+        </div>
+
+        <!-- ---- Real World category ---- -->
+        <div class="rollout-panel" data-rollout-panel="real">
+          <div class="carousel" data-carousel>
+            <button class="carousel-arrow prev" data-carousel-prev aria-label="Previous example">&#8249;</button>
+            <div class="carousel-track">
+              <!-- Real World example 1 -->
+              <div class="carousel-slide is-active" data-carousel-slide>
+                <p class="instruction">
+                  <span class="instruction-label">Instruction:</span>
+                  “PUT THE LANGUAGE INSTRUCTION HERE.”
+                </p>
+                <div class="video-pair">
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/real1a-poster.png">
+                      <source src="assets/real1a.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption A</figcaption>
+                  </figure>
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/real1b-poster.png">
+                      <source src="assets/real1b.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption B</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <!-- Real World example 2 -->
+              <div class="carousel-slide" data-carousel-slide>
+                <p class="instruction">
+                  <span class="instruction-label">Instruction:</span>
+                  “PUT THE LANGUAGE INSTRUCTION HERE.”
+                </p>
+                <div class="video-pair">
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/real2a-poster.png">
+                      <source src="assets/real2a.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption A</figcaption>
+                  </figure>
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/real2b-poster.png">
+                      <source src="assets/real2b.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption B</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <!-- Real World example 3 -->
+              <div class="carousel-slide" data-carousel-slide>
+                <p class="instruction">
+                  <span class="instruction-label">Instruction:</span>
+                  “PUT THE LANGUAGE INSTRUCTION HERE.”
+                </p>
+                <div class="video-pair">
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/real3a-poster.png">
+                      <source src="assets/real3a.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption A</figcaption>
+                  </figure>
+                  <figure class="video-cell">
+                    <video class="bare-video" muted loop playsinline poster="assets/real3b-poster.png">
+                      <source src="assets/real3b.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Caption B</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-arrow next" data-carousel-next aria-label="Next example">&#8250;</button>
+          </div>
+          <p class="carousel-counter" data-carousel-counter></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= BIBTEX ======================= -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>BibTeX</h2>
+        <div class="bibtex">
+          <button class="copy-btn" data-copy-target="#bibtex-code">Copy</button>
+          <pre id="bibtex-code"><code>@inproceedings{yourcitekey2026,
+  title     = {WatchAct: A Benchmark for Behavior-Grounded Robot Manipulation},
+  author    = {Author One and Author Two and Author Three},
+  booktitle = {Venue},
+  year      = {2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="footer">
+    <div class="container narrow">
+      <p>
+        This website is licensed under a
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">
+          Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>Template adapted for GitHub Pages. © 2026 PROJECT AUTHORS.</p>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

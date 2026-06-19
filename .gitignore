@@ -1,0 +1,10 @@
+# Local video backups / originals — not part of the website, never push these.
+assets/*-bak.mp4
+assets/*-1x-bak.mp4
+assets/*-fullrange-bak.mp4
+assets/*-orig.mp4
+assets/*-old.mp4
+
+# OS junk
+.DS_Store
+**/.DS_Store

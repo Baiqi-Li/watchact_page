@@ -1,0 +1,631 @@
+/* ============================================================
+   Design tokens — tweak these to rebrand the whole page
+   ============================================================ */
+:root {
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --bg: #ffffff;
+  --bg-alt: #f6f7f9;
+  --border: #e5e7eb;
+  --max-width: 1080px;
+  --narrow-width: 760px;
+  --radius: 10px;
+  font-size: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e8e8e8;
+    --text-muted: #a0a0a0;
+    --bg: #0f1115;
+    --bg-alt: #171a21;
+    --border: #2a2e37;
+  }
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.container.narrow { max-width: var(--narrow-width); }
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+/* Subsection heading (e.g. parts within Experiments). */
+.subsection {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 2.5rem 0 0.75rem;
+}
+
+/* ============================================================
+   Accordion (collapsible sub-sections, e.g. Experiments)
+   ============================================================ */
+.accordion {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.85rem;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.accordion-header {
+  list-style: none;            /* hide default disclosure triangle */
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+.accordion-header::-webkit-details-marker { display: none; }
+.accordion-header::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+.accordion-item[open] .accordion-header::after {
+  content: "\2212"; /* minus sign */
+}
+.accordion-header:hover { color: var(--accent); }
+.accordion-body {
+  padding: 0.25rem 1.25rem 1.25rem;
+  background: var(--bg);
+}
+.accordion-body .section-intro { margin-top: 1rem; }
+
+/* Collapsible takeaway: the callout itself is the clickable summary. */
+.takeaway-item {
+  max-width: 820px;
+  margin: 1.25rem auto;
+}
+.takeaway {
+  padding: 0.85rem 1.1rem;
+  background: var(--bg-alt);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  color: var(--text);
+}
+.takeaway strong { color: var(--accent); }
+
+/* summary styling (when a .takeaway is used as a <details> summary) */
+summary.takeaway {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+summary.takeaway::-webkit-details-marker { display: none; }
+summary.takeaway::after {
+  content: "+";
+  color: var(--accent);
+  font-size: 1.3rem;
+  line-height: 1;
+  margin-left: 1rem;
+}
+.takeaway-item[open] > summary.takeaway::after { content: "\2212"; }
+
+.takeaway-detail {
+  margin: 0.6rem 0 0;
+  padding: 0 0.25rem;
+  text-align: justify;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}
+
+.authors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.25rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.author sup { color: var(--text-muted); }
+
+.affiliations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.venue {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); opacity: 0.9; text-decoration: none; }
+.btn .icon { font-size: 1rem; }
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-of-type { border-bottom: none; }
+
+figure { margin: 1.5rem 0; text-align: center; }
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* Standalone section figures (Taxonomy, Pipeline, Experiments, …): cap the
+   width and center, so the figures are smaller and all line up to the same
+   width. Carousel / video-pair figures are nested deeper and unaffected. */
+.container > figure {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Smaller, centered figure (e.g. some takeaway figures). */
+.fig-narrow {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.teaser img { border: none; }
+
+/* Teaser caption: normal left-aligned body text, not the centered figcaption. */
+.teaser-caption {
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #777;
+  margin-top: 0.25rem;   /* hug the teaser image */
+  margin-bottom: 1.5rem; /* keep more space before the abstract */
+}
+
+.section-lead {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}
+
+/* Justify body text so both edges are flush (e.g. the abstract). */
+.justify {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* A paragraph of intro text inside a wide section: centered block, readable
+   width, justified (not center-aligned like a one-line .section-lead). */
+.section-intro {
+  max-width: 820px;
+  margin: 0 auto 2rem;
+  text-align: justify;
+  hyphens: auto;
+  color: var(--text-muted);
+}
+
+/* Lettered list (a, b, c) sharing the centered, readable width of .section-intro. */
+.composition-list {
+  max-width: 820px;
+  margin: 0 auto 2rem;
+  padding-left: 1.5rem;
+  list-style: lower-alpha;
+  color: var(--text-muted);
+  text-align: justify;
+}
+.composition-list li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.35rem;
+}
+.composition-list li::marker {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Numbered list (1, 2) with nested sub-items, e.g. Spatial Reasoning Design. */
+.spatial-list {
+  max-width: 820px;
+  margin: 0 auto 2rem;
+  padding-left: 1.5rem;
+  list-style: decimal;
+  color: var(--text-muted);
+  text-align: justify;
+}
+.spatial-list > li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.35rem;
+}
+.spatial-list > li::marker {
+  font-weight: 700;
+  color: var(--text);
+}
+.spatial-list ul {
+  list-style: disc;
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+.spatial-list ul li {
+  margin-bottom: 0.35rem;
+}
+
+/* Three camera-viewpoint images side by side, each with a caption. */
+.viewpoint-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 1rem 0 0.5rem;
+}
+.viewpoint-cell { margin: 0; text-align: center; }
+.viewpoint-cell img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.viewpoint-cell figcaption {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .viewpoint-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Motivation example — instruction + side-by-side videos
+   ============================================================ */
+.example {
+  margin: 0 auto 2.5rem;
+  max-width: 980px;
+}
+.example:last-child { margin-bottom: 0; }
+
+.instruction {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+}
+.instruction-label {
+  font-weight: 700;
+  color: var(--accent);
+  margin-right: 0.35rem;
+}
+
+/* Larger instruction + video captions in the Motivating Example section. */
+.example .instruction { font-size: 1.45rem; }
+.example .video-cell figcaption { font-size: 1.2rem; }
+
+/* Lock both Motivating Example videos to the same box so they match and align
+   (the two clips have slightly different aspect ratios otherwise). */
+.example .video-pair .bare-video {
+  aspect-ratio: 9 / 10;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Two videos side by side with a gap in the middle */
+.video-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.video-cell { margin: 0; text-align: center; }
+.video-cell figcaption {
+  margin-top: 0.6rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Plain (non-embedded) video element */
+.bare-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+/* Overview video: lock the 16:9 box so it never resizes on play, and show the
+   poster frame fully (contain) rather than cropping it. */
+.overview-video {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Task examples — one video + one image side by side */
+.media-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.media-cell { margin: 0; text-align: center; }
+.media-cell img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* The human video (16:9) and executable-task image (square) have different
+   aspect ratios; lock both to the same 16:9 box so the pair lines up. */
+.media-pair .bare-video,
+.media-pair img {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ============================================================
+   Task examples — single-slide carousel with left/right arrows
+   ============================================================ */
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.carousel-track {
+  flex: 1;
+  min-width: 0;
+}
+.carousel-slide { display: none; }
+.carousel-slide.is-active { display: block; }
+
+.carousel-arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--text);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.carousel-arrow:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.carousel-caption {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Caption label style, matching the "Human Video" caption in Motivating Example
+   (see .example .video-cell figcaption). Used by Taxonomy Overview and the
+   "Examples in WatchAct" carousel caption. */
+.caption-label,
+.carousel-caption {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.carousel-counter {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Simulation videos have mismatched aspect ratios (16:9 vs 1:1). Lock each
+   cell to an identical 16:9 box and letterbox the contents so the two videos
+   line up neatly. Scoped to the Simulation panel only. */
+[data-rollout-panel="sim"] .video-pair .bare-video {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ============================================================
+   Rollout demos — tabbed examples
+   ============================================================ */
+.rollout-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+.rollout-tab {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.rollout-tab:hover { border-color: var(--accent); }
+.rollout-tab.is-active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.rollout-panel { display: none; }
+.rollout-panel.is-active { display: block; }
+
+/* Success / failure highlight in rollout captions. */
+.result-success { color: #1a9e4b; font-weight: 700; }
+.result-fail { color: #d83a3a; font-weight: 700; }
+
+/* Per-example analysis text below the videos in each rollout slide. */
+.rollout-analysis {
+  max-width: 820px;
+  margin: 1.25rem auto 0;
+  text-align: justify;
+  color: var(--text-muted);
+}
+
+/* Stack video / media pairs on narrow screens */
+@media (max-width: 640px) {
+  .video-pair,
+  .media-pair { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Responsive video embed (16:9)
+   ============================================================ */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* ============================================================
+   BibTeX block
+   ============================================================ */
+.bibtex {
+  position: relative;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+.bibtex pre {
+  margin: 0;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.copy-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+}
+.footer p { margin: 0.4rem 0; }
