@@ -5,6 +5,19 @@ assets/*-fullrange-bak.mp4
 assets/*-orig.mp4
 assets/*-old.mp4
 
+# Source clips used only to extract still frames — not embedded in the site.
+assets/front.MP4
+assets/front_3.MP4
+assets/left.MP4
+assets/left_3.MP4
+assets/oblique.MP4
+assets/oblique_3.MP4
+assets/ep00_success.mp4
+assets/ep00_failure.mp4
+
+# VSCode local history
+.history/
+
 # OS junk
 .DS_Store
 **/.DS_Store

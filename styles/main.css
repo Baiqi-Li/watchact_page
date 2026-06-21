@@ -350,6 +350,27 @@ figcaption {
   gap: 1.25rem;
   margin: 1rem 0 0.5rem;
 }
+
+/* The viewpoint example-group carousel lives inside the narrow 820px list
+   column; break it out to a wider, page-centered block so the three photos
+   render larger. Capped to the viewport to avoid horizontal scroll. */
+.viewpoint-carousel {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1080px, 95vw);
+  margin: 1.5rem 0;
+}
+.viewpoint-carousel .viewpoint-grid {
+  gap: 1rem;
+  margin: 0;
+}
+.viewpoint-carousel + .carousel-counter {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1080px, 95vw);
+}
 .viewpoint-cell { margin: 0; text-align: center; }
 .viewpoint-cell img {
   width: 100%;
@@ -429,6 +450,13 @@ figcaption {
   aspect-ratio: 16 / 9;
   height: auto;
   object-fit: contain;
+  /* Break out of the narrow (760px) container to a larger, page-centered box.
+     Capped to the viewport so it never causes horizontal scroll. */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1000px, 95vw);
+  max-width: none;
 }
 
 /* Task examples — one video + one image side by side */

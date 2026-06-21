@@ -63,7 +63,7 @@
     <!-- ======================= OVERVIEW VIDEO ======================= -->
     <section class="section">
       <div class="container narrow">
-        <h2>Video Introduction</h2>
+        <h2>Overview</h2>
         <!-- poster shows a still frame (extracted from the video) before play,
              so the box isn't black. The overview-video class fixes the 16:9 box
              so it never resizes when playback starts. -->
@@ -76,7 +76,7 @@
     </section>
 
     <!-- ======================= ABSTRACT ======================= -->
-    <section class="section">
+    <!-- <section class="section">
       <div class="container narrow">
         <h2>Overview</h2>
         <figure class="teaser">
@@ -106,7 +106,7 @@
           10.6% on out-of-domain scenarios.
         </p>
       </div>
-    </section>
+    </section> -->
 
     <!-- ======================= MOTIVATION EXAMPLE ======================= -->
     <section class="section">
@@ -139,18 +139,99 @@
       </div>
     </section>
 
+    <!-- ======================= SPATIAL REASONING DESIGN ======================= -->
+    <section class="section">
+      <div class="container">
+        <h2>Spatial Reasoning Design</h2>
+        <!-- <p class="section-intro"> -->
+          <!-- We vary spatial conditions along two axes to test spatial grounding and frame-dependent reasoning to test whether agents can ground spatial relations observed from one perspective, interpret frame-dependent spatial language, and act from the robot's execution viewpoint. -->
+        <!-- </p> -->
+        <ol class="spatial-list">
+          <li>Videos are captured from diverse camera viewpoints.
+            <!-- Each slide is one example group of three viewpoints; arrows switch between groups. -->
+            <div class="carousel viewpoint-carousel" data-carousel>
+              <button class="carousel-arrow prev" data-carousel-prev aria-label="Previous example group">&#8249;</button>
+
+              <div class="carousel-track">
+                <!-- Group 1 -->
+                <div class="carousel-slide is-active" data-carousel-slide>
+                  <div class="viewpoint-grid">
+                    <figure class="viewpoint-cell">
+                      <img src="assets/view-frontal.jpg" alt="Frontal view" />
+                      <figcaption>Frontal View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/view-side.jpg" alt="Side view" />
+                      <figcaption>Side View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/view-oblique.jpg" alt="Oblique view" />
+                      <figcaption>Oblique View</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <!-- Group 2 -->
+                <div class="carousel-slide" data-carousel-slide>
+                  <div class="viewpoint-grid">
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-front.jpg" alt="Frontal viewpoint" />
+                      <figcaption>Frontal View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-left.jpg" alt="Side viewpoint" />
+                      <figcaption>Side View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-oblique.jpg" alt="Oblique viewpoint" />
+                      <figcaption>Oblique View</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <!-- Group 3 -->
+                <div class="carousel-slide" data-carousel-slide>
+                  <div class="viewpoint-grid">
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-front-3.jpg" alt="Frontal viewpoint" />
+                      <figcaption>Frontal View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-left-3.jpg" alt="Side viewpoint" />
+                      <figcaption>Side View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-oblique-3.jpg" alt="Oblique viewpoint" />
+                      <figcaption>Oblique View</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+
+              <button class="carousel-arrow next" data-carousel-next aria-label="Next example group">&#8250;</button>
+            </div>
+            <p class="carousel-counter" data-carousel-counter></p>
+          </li>
+          <li>Language instructions use varied reference frames, either human-centered or camera-centered:
+            <ul>
+              <li><strong>Human-centered:</strong> e.g., "the cup on the human's left"</li>
+              <li><strong>Camera-centered:</strong> e.g., "the cup on the camera's left"</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <!-- ======================= BENCHMARK COMPOSITION ======================= -->
     <section class="section">
       <div class="container">
-        <h2>Benchmark Composition</h2>
-        <p class="section-intro">
+        <h2>WatchAct Instances</h2>
+        <!-- <p class="section-intro">
           WatchAct comprises 3,000 long-horizon instances, each pairing a real-world video of human activity with an aligned, executable simulator task. Each instance pairs (1) <strong>a real human-action video</strong> and (2) <strong>a language instruction</strong> with an aligned simulator scene and (3) <strong>an executable task</strong>, so evaluation is both scalable and reproducible. The video and task must align in three ways:
         </p>
         <ol class="composition-list">
           <li><strong>Execution-state consistency:</strong> the simulator's initial state matches the moment in the video from which the robot is expected to act.</li>
           <li><strong>Scene consistency:</strong> objects in the simulator match the video objects in category, appearance, and relative size, with layouts aligned through a shared set of named regions.</li>
           <li><strong>Goal consistency:</strong> the simulator's success predicate matches the goal implied by the video and instruction.</li>
-        </ol>
+        </ol> -->
 
         <!-- ---- Task Examples carousel (shown at the bottom of this section) ---- -->
         <!-- Carousel: one example shown at a time; arrows switch between them. -->
@@ -239,6 +320,66 @@
                 </figure>
               </div>
             </div>
+
+            <!-- ---- Example 5 ---- -->
+            <div class="carousel-slide" data-carousel-slide>
+              <p class="instruction">
+                <span class="instruction-label">Language Instruction:</span>
+                “Move objects by imitating human action sequences.”
+              </p>
+              <div class="media-pair">
+                <figure class="media-cell">
+                  <video class="bare-video" muted loop playsinline>
+                    <source src="assets/trimmed_human.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption>Real Human-action Video</figcaption>
+                </figure>
+                <figure class="media-cell">
+                  <img src="assets/exec-ep00.png" alt="Executable task 5 first frame" />
+                  <figcaption>Executable Task</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <!-- ---- Example 6 ---- -->
+            <div class="carousel-slide" data-carousel-slide>
+              <p class="instruction">
+                <span class="instruction-label">Language Instruction:</span>
+                “Put the object that was picked up three times into the tray.”
+              </p>
+              <div class="media-pair">
+                <figure class="media-cell">
+                  <video class="bare-video" muted loop playsinline>
+                    <source src="assets/human_trimmed.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption>Real Human-action Video</figcaption>
+                </figure>
+                <figure class="media-cell">
+                  <img src="assets/exec-ep00-failure.png" alt="Executable task 6 first frame" />
+                  <figcaption>Executable Task</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <!-- ---- Example 7 ---- -->
+            <div class="carousel-slide" data-carousel-slide>
+              <p class="instruction">
+                <span class="instruction-label">Language Instruction:</span>
+                “Put the displaced boxes back in their original positions.”
+              </p>
+              <div class="media-pair">
+                <figure class="media-cell">
+                  <video class="bare-video" muted loop playsinline>
+                    <source src="assets/left_human.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption>Real Human-action Video</figcaption>
+                </figure>
+                <figure class="media-cell">
+                  <img src="assets/exec-ep00-success-first.png" alt="Executable task 7 first frame" />
+                  <figcaption>Executable Task</figcaption>
+                </figure>
+              </div>
+            </div>
           </div>
 
           <button class="carousel-arrow next" data-carousel-next aria-label="Next example">&#8250;</button>
@@ -251,7 +392,7 @@
     </section>
 
     <!-- ======================= TAXONOMY ======================= -->
-    <section class="section">
+    <!-- <section class="section">
       <div class="container">
         <h2>Taxonomy</h2>
         <p class="section-intro">WatchAct comprises 14 tasks grouped into four cognitive capabilities of observing another agent (i.e., a person in this case). <strong>Event Grounding</strong> requires identifying a task-relevant event
@@ -267,10 +408,10 @@
           <img src="assets/taxonomy.png" alt="Taxonomy" />
         </figure>
       </div>
-    </section>
+    </section> -->
 
     <!-- ======================= DATA GENERATION PIPELINE ======================= -->
-    <section class="section">
+    <!-- <section class="section">
       <div class="container">
         <h2>Data Generation Pipeline</h2>
         <p class="section-intro"><strong>WatchAct data construction pipeline: </strong> <em>Step 1 (Schema Generation):</em> GPT-5.1 generates video recording instructions and the corresponding simulation task definition. <em>Step 2 (Data Construction):</em> we record the human video following the instructions and instantiate the matching LIBERO task. <em>Step 3 (Quality Verification):</em> each instance passes four checks: (i)&nbsp;Task Validity, (ii)&nbsp;Simulator Executability, (iii)&nbsp;Oracle-Plan Correctness, and (iv)&nbsp;Video–Simulator Alignment.</p>
@@ -278,44 +419,63 @@
           <img src="assets/pipeline.png" alt="Data generation pipeline" />
         </figure>
       </div>
-    </section>
+    </section> -->
 
-    <!-- ======================= SPATIAL REASONING DESIGN ======================= -->
+    <!-- ======================= EXPERIMENTAL TAKEAWAYS ======================= -->
     <section class="section">
       <div class="container">
-        <h2>Spatial Reasoning Design</h2>
-        <p class="section-intro">
-          We vary spatial conditions along two axes to test spatial grounding and frame-dependent reasoning to test whether agents can ground spatial relations observed from one perspective, interpret frame-dependent spatial language, and act from the robot's execution viewpoint.
-        </p>
-        <ol class="spatial-list">
-          <li>Videos are captured from diverse camera viewpoints.
-            <div class="viewpoint-grid">
-              <figure class="viewpoint-cell">
-                <img src="assets/view-frontal.jpg" alt="Frontal view" />
-                <figcaption>Frontal Views</figcaption>
-              </figure>
-              <figure class="viewpoint-cell">
-                <img src="assets/view-side.jpg" alt="Side view" />
-                <figcaption>Side Views</figcaption>
-              </figure>
-              <figure class="viewpoint-cell">
-                <img src="assets/view-oblique.jpg" alt="Oblique view" />
-                <figcaption>Oblique Views</figcaption>
-              </figure>
-            </div>
-          </li>
-          <li>Language instructions use varied reference frames, either human-centered or camera-centered:
-            <ul>
-              <li><strong>Human-centered:</strong> e.g., "the cup on the human's left"</li>
-              <li><strong>Camera-centered:</strong> e.g., "the cup on the camera's left"</li>
-            </ul>
-          </li>
-        </ol>
+        <h2>Experimental Takeaways</h2>
+        <!-- <p class="section-intro">WatchAct evaluates video-grounded embodied agents along three dimensions: (i) video-to-plan reasoning, (ii) policy execution with oracle plans, and (iii) full task completion by integrated planner and policy pipelines.</p> -->
+
+        <details class="takeaway-item">
+          <summary class="takeaway"><strong>Takeaway 1:</strong> VLMs struggle with video-to-plan reasoning.</summary>
+          <p class="takeaway-detail">The best model, Gemini-3.1-Pro, reaches only 36.8%, a gap of 60.3 points, which indicates that inferring a valid manipulation plan from video remains a major challenge for current VLMs.</p>
+          <figure>
+            <img src="assets/exp-main-results.png" alt="Main results" />
+          </figure>
+        </details>
+
+        <details class="takeaway-item">
+          <summary class="takeaway"><strong>Takeaway 2:</strong> Robotic policies struggle to follow oracle plans.</summary>
+          <p class="takeaway-detail">Even with oracle plans, current policies struggle on WatchAct.</p>
+          <figure class="fig-narrow">
+            <img src="assets/exp-main-results-2.png" alt="Main results (oracle-plan execution)" />
+          </figure>
+        </details>
+
+        <details class="takeaway-item">
+          <summary class="takeaway"><strong>Takeaway 3:</strong> Errors accumulate across the integrated pipeline.</summary>
+          <p class="takeaway-detail">Predicted plans degrade execution relative to oracle plans. Paired with <em>π<sub>0.5</sub></em>, Gemini-3.1-Pro plans reach 16.3% Task SR and GPT-5.4 plans 13.5%, both below the 21.5% oracle-plan ceiling.</p>
+          <figure class="fig-narrow">
+            <img src="assets/exp-main-results-2.png" alt="Main results (oracle-plan execution)" />
+          </figure>
+        </details>
+
+        <!-- <details class="takeaway-item">
+          <summary class="takeaway"><strong>Takeaway 4:</strong> Robust long-horizon behavior remains challenging for both planning and execution.</summary>
+          <p class="takeaway-detail">As plan length grows from 2 to 6 actions, GPT-5.4's Plan SR drops from 36.7% to 7.2% and <em>π<sub>0.5</sub></em>'s oracle-plan Task SR from 37.3% to 0.0%. The decline holds across all VLMs and both plan sources, indicating that robust long-horizon behavior remains challenging for both planning and execution.</p>
+        </details>
+
+        <details class="takeaway-item">
+          <summary class="takeaway"><strong>Takeaway 5:</strong> Human-centered spatial reasoning is the key weakness.</summary>
+          <p class="takeaway-detail">At fixed viewpoints, switching from a camera- to a human-centered frame lowers GPT-5.4's Plan SR by 19.5 and 11.0 points, while camera viewpoint matters little once the frame is human-centered (2.6 points between side and front views).</p>
+          <figure class="fig-narrow">
+            <img src="assets/spatial-psr-gpt-5.4.jpg" alt="GPT-5.4 spatial reasoning PSR" />
+          </figure>
+        </details>
+
+        <details class="takeaway-item">
+          <summary class="takeaway"><strong>Takeaway 6:</strong> Current policies struggle to handle unseen objects and instructions.</summary>
+          <p class="takeaway-detail">Current policies generalize poorly. The best policy, <em>π<sub>0.5</sub></em>, reaches 47.1% Task SR and 63.2% PR in-domain but drops to 10.6% Task SR and 20.0% PR out-of-domain. LingBot-VA falls near zero out-of-domain. These results indicate that current policies struggle to handle unseen objects and instructions.</p>
+          <figure class="fig-narrow">
+            <img src="assets/exp-main-results-3.png" alt="Generalization to unseen objects and instructions" />
+          </figure>
+        </details> -->
       </div>
     </section>
 
     <!-- ======================= EXPERIMENTS ======================= -->
-    <section class="section">
+    <!-- <section class="section">
       <div class="container">
         <h2>Experiments</h2>
         <p class="section-intro">
@@ -333,11 +493,11 @@
           <li><strong>Plan SR</strong> scores video-to-plan reasoning — whether a predicted plan satisfies the task's success conditions under symbolic execution (no robot).</li>
           <li><strong>Task SR</strong> scores physical execution — whether the robot reaches the success conditions in the simulator.</li>
           <li><strong>Progress Rate (PR)</strong> is the percentage of completed subgoals during execution.</li>
-        </ol>
+        </ol> -->
 
-        <div class="accordion">
+        <!-- <div class="accordion"> -->
           <!-- ---- Part 1: Main Results ---- -->
-          <details class="accordion-item">
+          <!-- <details class="accordion-item">
             <summary class="accordion-header">Main Results</summary>
             <div class="accordion-body">
               <details class="takeaway-item">
@@ -362,10 +522,10 @@
                 </figure>
               </details>
             </div>
-          </details>
+          </details> -->
 
           <!-- ---- Part 2: Diagnostic Analysis ---- -->
-          <details class="accordion-item">
+          <!-- <details class="accordion-item">
             <summary class="accordion-header">Diagnostic Analysis</summary>
             <div class="accordion-body">
               <details class="takeaway-item">
@@ -380,8 +540,8 @@
                     <img src="assets/spatial-psr-gpt-5.4.jpg" alt="GPT-5.4 spatial reasoning PSR" />
                     <figcaption>GPT-5.4</figcaption>
                   </figure>
-                  <figure class="viewpoint-cell">
-                    <img src="assets/spatial-psr-qwen3-instruct.jpg" alt="Qwen3-VL-Instruct spatial reasoning PSR" />
+                  <figure class="viewpoint-cell"> -->
+                    <!-- <img src="assets/spatial-psr-qwen3-instruct.jpg" alt="Qwen3-VL-Instruct spatial reasoning PSR" />
                     <figcaption>Qwen3-VL-Instruct</figcaption>
                   </figure>
                   <figure class="viewpoint-cell">
@@ -398,10 +558,10 @@
                 </figure>
               </details>
             </div>
-          </details>
+          </details> -->
 
           <!-- ---- Part 3: Real-World Experiments ---- -->
-          <details class="accordion-item">
+          <!-- <details class="accordion-item">
             <summary class="accordion-header">Real-World Experiments</summary>
             <div class="accordion-body">
               <p class="section-intro">We use <em>π<sub>0.5</sub></em> as the robot policy to run experiments on a Franka Research 3 with a Robotiq 2F-85 gripper. The pipeline — GPT-5.4 with <em>π<sub>0.5</sub></em> — reaches only 24% task success in-domain, falling to just 4% out-of-domain.</p>
@@ -412,7 +572,7 @@
           </details>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- ======================= ROLLOUT DEMOS ======================= -->
     <section class="section">
@@ -450,7 +610,7 @@
                     <video class="bare-video" muted loop playsinline poster="assets/sim1b-poster.png">
                       <source src="assets/sim1b.mp4" type="video/mp4" />
                     </video>
-                    <figcaption>Robot Execution (<span class="result-fail">Failure</span>)</figcaption>
+                    <figcaption>Robot Execution <span class="result-fail">Failure</span></figcaption>
                   </figure>
                 </div>
                 <p class="rollout-analysis">In the human video, the person picks up the white bottle three
@@ -474,7 +634,7 @@
                     <video class="bare-video" muted loop playsinline poster="assets/sim2b-poster.png">
                       <source src="assets/sim2b.mp4" type="video/mp4" />
                     </video>
-                    <figcaption>Robot Execution (<span class="result-fail">Failure</span>)</figcaption>
+                    <figcaption>Robot Execution <span class="result-fail">Failure</span></figcaption>
                   </figure>
                 </div>
                 <p class="rollout-analysis">In the human video, the person vigorously shakes
@@ -499,7 +659,7 @@
                     <video class="bare-video" muted loop playsinline poster="assets/sim3b-poster.png">
                       <source src="assets/sim3b.mp4" type="video/mp4" />
                     </video>
-                    <figcaption>Robot Execution (<span class="result-fail">Failure</span>)</figcaption>
+                    <figcaption>Robot Execution <span class="result-fail">Failure</span></figcaption>
                   </figure>
                 </div>
                 <p class="rollout-analysis">In the human video, the person removes several objects from the basket and places them on the table. The robot is asked to return the displaced objects to their original positions; however, the robot mistakenly places an object that had not been moved into the basket.</p>
@@ -521,7 +681,7 @@
                     <video class="bare-video" muted loop playsinline poster="assets/sim4b-poster.png">
                       <source src="assets/sim4b.mp4" type="video/mp4" />
                     </video>
-                    <figcaption>Robot Execution (<span class="result-success">Success</span>)</figcaption>
+                    <figcaption>Robot Execution <span class="result-success">Success</span></figcaption>
                   </figure>
                 </div>
                 <p class="rollout-analysis">In the human video, the person takes a blue cream cheese box out of the basket near the camera and places it in the center of the table. The robot successfully picks up the blue box and places it into the correct basket.</p>
@@ -554,7 +714,7 @@
                     <video class="bare-video" muted loop playsinline poster="assets/real1b-poster.png">
                       <source src="assets/real1b.mp4" type="video/mp4" />
                     </video>
-                    <figcaption>Robot Execution (<span class="result-success">Success</span>)</figcaption>
+                    <figcaption>Robot Execution <span class="result-success">Success</span></figcaption>
                   </figure>
                 </div>
                 <p class="rollout-analysis">In the human video, the person removes a cup from the basket. Following the instruction, the robot must successfully return the displaced cup to its original position.</p>
@@ -576,7 +736,7 @@
                     <video class="bare-video" muted loop playsinline poster="assets/real2b-poster.png">
                       <source src="assets/real2b.mp4" type="video/mp4" />
                     </video>
-                    <figcaption>Robot Execution (<span class="result-fail">Failure</span>)</figcaption>
+                    <figcaption>Robot Execution <span class="result-fail">Failure</span></figcaption>
                   </figure>
                 </div>
                 <p class="rollout-analysis">In the human video, the person vigorously
@@ -601,7 +761,7 @@
                     <video class="bare-video" muted loop playsinline poster="assets/real3b-poster.png">
                       <source src="assets/real3b.mp4" type="video/mp4" />
                     </video>
-                    <figcaption>Robot Execution (<span class="result-fail">Failure</span>)</figcaption>
+                    <figcaption>Robot Execution <span class="result-fail">Failure</span></figcaption>
                   </figure>
                 </div>
                 <p class="rollout-analysis">In the human video, the person moves a cup and pours
