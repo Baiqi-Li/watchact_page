@@ -49,10 +49,13 @@
         <a class="btn" href="#" target="_blank" rel="noopener">
           <span class="icon">📚</span> arXiv
         </a>
-        <a class="btn" href="#" target="_blank" rel="noopener">
+        <a class="btn" href="https://baiqi-li.github.io/watchact_page/" target="_blank" rel="noopener">
+          <span class="icon">🌐</span> Project
+        </a>
+        <a class="btn" href="https://github.com/Baiqi-Li/WatchAct" target="_blank" rel="noopener">
           <span class="icon">💻</span> Code
         </a>
-        <a class="btn" href="#" target="_blank" rel="noopener">
+        <a class="btn" href="https://huggingface.co/datasets/BaiqiL/WatchAct" target="_blank" rel="noopener">
           <span class="icon">🗂️</span> Dataset
         </a>
       </nav>
@@ -136,87 +139,6 @@
             </figure>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ======================= SPATIAL REASONING DESIGN ======================= -->
-    <section class="section">
-      <div class="container">
-        <h2>Spatial Reasoning Design</h2>
-        <!-- <p class="section-intro"> -->
-          <!-- We vary spatial conditions along two axes to test spatial grounding and frame-dependent reasoning to test whether agents can ground spatial relations observed from one perspective, interpret frame-dependent spatial language, and act from the robot's execution viewpoint. -->
-        <!-- </p> -->
-        <ol class="spatial-list">
-          <li>Videos are captured from diverse camera viewpoints.
-            <!-- Each slide is one example group of three viewpoints; arrows switch between groups. -->
-            <div class="carousel viewpoint-carousel" data-carousel>
-              <button class="carousel-arrow prev" data-carousel-prev aria-label="Previous example group">&#8249;</button>
-
-              <div class="carousel-track">
-                <!-- Group 1 -->
-                <div class="carousel-slide is-active" data-carousel-slide>
-                  <div class="viewpoint-grid">
-                    <figure class="viewpoint-cell">
-                      <img src="assets/view-frontal.jpg" alt="Frontal view" />
-                      <figcaption>Frontal View</figcaption>
-                    </figure>
-                    <figure class="viewpoint-cell">
-                      <img src="assets/view-side.jpg" alt="Side view" />
-                      <figcaption>Side View</figcaption>
-                    </figure>
-                    <figure class="viewpoint-cell">
-                      <img src="assets/view-oblique.jpg" alt="Oblique view" />
-                      <figcaption>Oblique View</figcaption>
-                    </figure>
-                  </div>
-                </div>
-                <!-- Group 2 -->
-                <div class="carousel-slide" data-carousel-slide>
-                  <div class="viewpoint-grid">
-                    <figure class="viewpoint-cell">
-                      <img src="assets/spatial-front.jpg" alt="Frontal viewpoint" />
-                      <figcaption>Frontal View</figcaption>
-                    </figure>
-                    <figure class="viewpoint-cell">
-                      <img src="assets/spatial-left.jpg" alt="Side viewpoint" />
-                      <figcaption>Side View</figcaption>
-                    </figure>
-                    <figure class="viewpoint-cell">
-                      <img src="assets/spatial-oblique.jpg" alt="Oblique viewpoint" />
-                      <figcaption>Oblique View</figcaption>
-                    </figure>
-                  </div>
-                </div>
-                <!-- Group 3 -->
-                <div class="carousel-slide" data-carousel-slide>
-                  <div class="viewpoint-grid">
-                    <figure class="viewpoint-cell">
-                      <img src="assets/spatial-front-3.jpg" alt="Frontal viewpoint" />
-                      <figcaption>Frontal View</figcaption>
-                    </figure>
-                    <figure class="viewpoint-cell">
-                      <img src="assets/spatial-left-3.jpg" alt="Side viewpoint" />
-                      <figcaption>Side View</figcaption>
-                    </figure>
-                    <figure class="viewpoint-cell">
-                      <img src="assets/spatial-oblique-3.jpg" alt="Oblique viewpoint" />
-                      <figcaption>Oblique View</figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-
-              <button class="carousel-arrow next" data-carousel-next aria-label="Next example group">&#8250;</button>
-            </div>
-            <p class="carousel-counter" data-carousel-counter></p>
-          </li>
-          <li>Language instructions use varied reference frames, either human-centered or camera-centered:
-            <ul>
-              <li><strong>Human-centered:</strong> e.g., "the cup on the human's left"</li>
-              <li><strong>Camera-centered:</strong> e.g., "the cup on the camera's left"</li>
-            </ul>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -388,6 +310,87 @@
         <!-- Slide counter (auto-updated by JS) -->
         <p class="carousel-counter" data-carousel-counter></p>
 
+      </div>
+    </section>
+
+    <!-- ======================= SPATIAL REASONING DESIGN ======================= -->
+    <section class="section">
+      <div class="container">
+        <h2>Spatial Reasoning Design</h2>
+        <!-- <p class="section-intro"> -->
+          <!-- We vary spatial conditions along two axes to test spatial grounding and frame-dependent reasoning to test whether agents can ground spatial relations observed from one perspective, interpret frame-dependent spatial language, and act from the robot's execution viewpoint. -->
+        <!-- </p> -->
+        <ol class="spatial-list">
+          <li>Videos are captured from diverse camera viewpoints.
+            <!-- Each slide is one example group of three viewpoints; arrows switch between groups. -->
+            <div class="carousel viewpoint-carousel" data-carousel>
+              <button class="carousel-arrow prev" data-carousel-prev aria-label="Previous example group">&#8249;</button>
+
+              <div class="carousel-track">
+                <!-- Group 1 -->
+                <div class="carousel-slide is-active" data-carousel-slide>
+                  <div class="viewpoint-grid">
+                    <figure class="viewpoint-cell">
+                      <img src="assets/view-frontal.jpg" alt="Frontal view" />
+                      <figcaption>Frontal View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/view-side.jpg" alt="Side view" />
+                      <figcaption>Side View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/view-oblique.jpg" alt="Oblique view" />
+                      <figcaption>Oblique View</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <!-- Group 2 -->
+                <div class="carousel-slide" data-carousel-slide>
+                  <div class="viewpoint-grid">
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-front.jpg" alt="Frontal viewpoint" />
+                      <figcaption>Frontal View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-left.jpg" alt="Side viewpoint" />
+                      <figcaption>Side View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-oblique.jpg" alt="Oblique viewpoint" />
+                      <figcaption>Oblique View</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <!-- Group 3 -->
+                <div class="carousel-slide" data-carousel-slide>
+                  <div class="viewpoint-grid">
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-front-3.jpg" alt="Frontal viewpoint" />
+                      <figcaption>Frontal View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-left-3.jpg" alt="Side viewpoint" />
+                      <figcaption>Side View</figcaption>
+                    </figure>
+                    <figure class="viewpoint-cell">
+                      <img src="assets/spatial-oblique-3.jpg" alt="Oblique viewpoint" />
+                      <figcaption>Oblique View</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+
+              <button class="carousel-arrow next" data-carousel-next aria-label="Next example group">&#8250;</button>
+            </div>
+            <p class="carousel-counter" data-carousel-counter></p>
+          </li>
+          <li>Language instructions use varied reference frames, either human-centered or camera-centered:
+            <ul>
+              <li><strong>Human-centered:</strong> e.g., "the cup on the human's left"</li>
+              <li><strong>Camera-centered:</strong> e.g., "the cup on the camera's left"</li>
+            </ul>
+          </li>
+        </ol>
       </div>
     </section>
 
